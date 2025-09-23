@@ -11,9 +11,11 @@ function App() {
 
   console.log(wordToGuess);
   return (
-    <>
+    <div className="!max-w-[800px] !mx-auto !bg-blue-400 flex flex-col gap-[2rem] items-center">
       <h1 className="text-red-400">Hangman Word Game</h1>
-    </>
+
+      <div className="text-[2rem] text-center">Lose Win</div>
+    </div>
   );
 }
 
