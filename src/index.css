@@ -10,3 +10,8 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.btn {
+  background-color: darkred;
+  width: 100%;
+}
