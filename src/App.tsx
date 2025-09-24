@@ -14,7 +14,7 @@ function App() {
 
   console.log(wordToGuess);
   return (
-    <div className="!max-w-[800px] !mx-auto flex flex-col gap-[2rem] items-center">
+    <div className="!mb-[2rem] !max-w-[800px] !mx-auto flex flex-col gap-[2rem] items-center">
       <h1>Hangman Word Game</h1>
 
       <div className="text-[2rem] text-center">Lose Win</div>
