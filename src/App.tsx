@@ -20,7 +20,9 @@ function App() {
       <div className="text-[2rem] text-center">Lose Win</div>
       <HangmanDrawing />
       <HangmanWord />
-      <Keyboard />
+      <div className="self-stretch">
+        <Keyboard />
+      </div>
     </div>
   );
 }
