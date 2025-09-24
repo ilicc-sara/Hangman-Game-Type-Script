@@ -23,7 +23,7 @@ function App() {
 
       <div className="text-[2rem] text-center">Lose Win</div>
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
-      <HangmanWord />
+      <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
       <div className="self-stretch">
         <Keyboard />
       </div>

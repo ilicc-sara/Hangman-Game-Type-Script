@@ -1,6 +1,11 @@
 import React from "react";
 
-function HangmanWord() {
+type HangmanWordProps = {
+  guessedLetters: string[];
+  wordToGuess: string;
+};
+
+function HangmanWord({ guessedLetters, wordToGuess }: HangmanWordProps) {
   const word = "test";
   const guessedLetters = ["t", "e"];
   return (
