@@ -24,7 +24,11 @@ const LEFT_LEG = (
   <div className="w-[100px] h-[10px] bg-black absolute top-[190px] right-[2px] origin-bottom-right transform -rotate-[60deg] rounded-full"></div>
 );
 
-function HangmanDrawing() {
+type HangmanDrawingProps = {
+  numberOfGuesses: number;
+};
+
+function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
   return (
     <div className="relative">
       {HEAD}
