@@ -34,11 +34,7 @@ function Keyboard() {
     <div className="grid grid-cols-[repeat(auto-fit,minmax(75px,1fr))] gap-[.5rem]">
       {KEYS.map((key) => {
         return (
-          <button
-            disabled
-            className={`${styles.btn} ${styles.inactive}`}
-            key={key}
-          >
+          <button disabled className={`${styles.btn}`} key={key}>
             {key}
           </button>
         );
@@ -48,3 +44,4 @@ function Keyboard() {
 }
 
 export default Keyboard;
+//  ${styles.inactive}
