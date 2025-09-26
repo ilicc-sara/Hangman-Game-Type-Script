@@ -22,22 +22,24 @@ function App() {
     setGuessedLetters((currentLetters) => [...currentLetters, letter]);
   }
 
-  console.log(wordToGuess);
-
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const key = e.key;
-      console.log(e);
 
       if (!key.match(/^[a-z]$/)) return;
+      console.log(key);
+
       e.preventDefault();
       addGuessedLetter(key);
     };
     document.addEventListener("keypress", handler);
+
     return () => {
       document.removeEventListener("keypress", handler);
     };
   }, []);
+
+  console.log(wordToGuess);
 
   return (
     <div className="!mb-[2rem] !max-w-[800px] !mx-auto flex flex-col gap-[2rem] items-center">
