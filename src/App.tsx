@@ -37,7 +37,7 @@ function App() {
     return () => {
       document.removeEventListener("keypress", handler);
     };
-  }, []);
+  }, [guessedLetters]);
 
   console.log(wordToGuess);
 
@@ -49,7 +49,13 @@ function App() {
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
       <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
       <div className="self-stretch">
-        <Keyboard />
+        <Keyboard
+          activeLetter={guessedLetters.filter((letter) =>
+            wordToGuess.includes(letter)
+          )}
+          inactiveLetters={incorrectLetters}
+          addGuessedLetter={addGuessedLetter}
+        />
       </div>
     </div>
   );
