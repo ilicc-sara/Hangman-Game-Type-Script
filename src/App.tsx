@@ -30,16 +30,15 @@ function App() {
       console.log(e);
 
       if (!key.match(/^[a-z]$/)) return;
-
       e.preventDefault();
       addGuessedLetter(key);
     };
     document.addEventListener("keypress", handler);
-
     return () => {
       document.removeEventListener("keypress", handler);
     };
   }, []);
+
   return (
     <div className="!mb-[2rem] !max-w-[800px] !mx-auto flex flex-col gap-[2rem] items-center">
       <h1>Hangman Word Game</h1>
