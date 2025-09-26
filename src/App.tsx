@@ -16,15 +16,23 @@ function App() {
     (letter) => !wordToGuess.includes(letter)
   );
 
+  function addGuessedLetter(letter: string) {
+    if (guessedLetters.includes(letter)) return;
+
+    setGuessedLetters((currentLetters) => [...currentLetters, letter]);
+  }
+
   console.log(wordToGuess);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const key = e.key;
+      console.log(e);
 
       if (!key.match(/^[a-z]$/)) return;
 
       e.preventDefault();
+      addGuessedLetter(key);
     };
     document.addEventListener("keypress", handler);
 
