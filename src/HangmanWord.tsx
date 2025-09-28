@@ -3,9 +3,14 @@ import React from "react";
 type HangmanWordProps = {
   guessedLetters: string[];
   wordToGuess: string;
+  reveal?: boolean;
 };
 
-function HangmanWord({ guessedLetters, wordToGuess }: HangmanWordProps) {
+function HangmanWord({
+  guessedLetters,
+  wordToGuess,
+  reveal = false,
+}: HangmanWordProps) {
   // const word = "test";
   // const guessedLetters = ["t", "e"];
   return (
@@ -17,7 +22,13 @@ function HangmanWord({ guessedLetters, wordToGuess }: HangmanWordProps) {
         >
           <span
             className={`${
-              guessedLetters.includes(letter) ? "visible" : "invisible"
+              guessedLetters.includes(letter) || reveal
+                ? "visible"
+                : "invisible"
+            }  ${
+              !guessedLetters.includes(letter) && reveal
+                ? "text-red-500"
+                : "text-black"
             }`}
           >
             {letter}
