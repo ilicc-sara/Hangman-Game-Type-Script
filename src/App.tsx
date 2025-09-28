@@ -16,6 +16,11 @@ function App() {
     (letter) => !wordToGuess.includes(letter)
   );
 
+  const isLoser = incorrectLetters.length >= 6;
+  const isWinner = wordToGuess
+    .split("")
+    .every((letter) => guessedLetters.includes(letter));
+
   function addGuessedLetter(letter: string) {
     if (guessedLetters.includes(letter)) return;
 
@@ -45,7 +50,10 @@ function App() {
     <div className="!mb-[2rem] !max-w-[800px] !mx-auto flex flex-col gap-[2rem] items-center">
       <h1>Hangman Word Game</h1>
 
-      <div className="text-[2rem] text-center">Lose Win</div>
+      <div className="text-[2rem] text-center">
+        {isWinner && "Winner! - Refresh to try again!"}
+        {isLoser && "Nice Try - Refresh to try again"}
+      </div>
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
       <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
       <div className="self-stretch">
