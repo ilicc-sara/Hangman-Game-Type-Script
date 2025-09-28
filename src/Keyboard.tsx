@@ -35,12 +35,16 @@ type KeyboardProps = {
   addGuessedLetter: (letter: string) => void;
 };
 
-function Keyboard({ activeLetters, inactiveLetters, addGuessedLetter }) {
+function Keyboard({
+  activeLetters,
+  inactiveLetters,
+  addGuessedLetter,
+}: KeyboardProps) {
   return (
     <div className="grid grid-cols-[repeat(auto-fit,minmax(75px,1fr))] gap-[.5rem]">
       {KEYS.map((key) => {
         const isActive = activeLetters.includes(key);
-        const isInactive = activeLetters.includes(key);
+        const isInactive = inactiveLetters.includes(key);
         return (
           <button
             onClick={() => addGuessedLetter(key)}
