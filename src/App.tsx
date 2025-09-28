@@ -58,6 +58,7 @@ function App() {
       <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
       <div className="self-stretch">
         <Keyboard
+          disabled={isWinner || isLoser}
           activeLetters={guessedLetters.filter((letter) =>
             wordToGuess.includes(letter)
           )}
