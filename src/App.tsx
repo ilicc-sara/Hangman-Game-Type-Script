@@ -66,41 +66,43 @@ function App() {
   }, []);
 
   return (
-    <div className="!mb-[2rem] !max-w-[800px] !mx-auto flex flex-col gap-[2rem] items-center">
-      <h1 className="text-4xl font-bold text-gray-800 tracking-wide text-center">
-        Hangman Word Game
-      </h1>
+    <div className="w-full bg-gradient-to-r from-[#f7dcff] to-[#fff9d8] !mb-0">
+      <div className="!mb-[2rem] !max-w-[800px] !mx-auto flex flex-col gap-[2rem] items-center ">
+        <h1 className="text-4xl font-bold text-gray-800 tracking-wide text-center">
+          Hangman Word Game
+        </h1>
 
-      <div
-        className={`text-2xl font-semibold text-center ${
-          isWinner
-            ? "text-green-600"
-            : isLoser
-            ? "text-red-600"
-            : "text-gray-700"
-        }`}
-      >
-        {isWinner && "Winner! 🎉 Refresh to try again!"}
-        {isLoser && "Nice try 😅 Refresh to try again"}
-      </div>
+        <div
+          className={`text-2xl font-semibold text-center ${
+            isWinner
+              ? "text-green-600"
+              : isLoser
+              ? "text-red-600"
+              : "text-gray-700"
+          }`}
+        >
+          {isWinner && "Winner! 🎉 Press Enter key to try again!"}
+          {isLoser && "Nice try 😅 Press Enter key to try again"}
+        </div>
 
-      <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
+        <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
 
-      <HangmanWord
-        reveal={isLoser}
-        guessedLetters={guessedLetters}
-        wordToGuess={wordToGuess}
-      />
-
-      <div className="self-stretch">
-        <Keyboard
-          disabled={isWinner || isLoser}
-          activeLetters={guessedLetters.filter((letter) =>
-            wordToGuess.includes(letter)
-          )}
-          inactiveLetters={incorrectLetters}
-          addGuessedLetter={addGuessedLetter}
+        <HangmanWord
+          reveal={isLoser}
+          guessedLetters={guessedLetters}
+          wordToGuess={wordToGuess}
         />
+
+        <div className="self-stretch">
+          <Keyboard
+            disabled={isWinner || isLoser}
+            activeLetters={guessedLetters.filter((letter) =>
+              wordToGuess.includes(letter)
+            )}
+            inactiveLetters={incorrectLetters}
+            addGuessedLetter={addGuessedLetter}
+          />
+        </div>
       </div>
     </div>
   );
