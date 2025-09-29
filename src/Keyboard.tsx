@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Keyboard.module.css";
 const KEYS = [
   "a",
@@ -52,7 +51,7 @@ function Keyboard({
             onClick={() => addGuessedLetter(key)}
             className={`${styles.btn} ${isActive ? styles.active : ""} 
             ${isInactive ? styles.inactive : ""}
-             `}
+             rounded `}
             key={key}
             disabled={isInactive || isActive || disabled}
           >
@@ -65,4 +64,3 @@ function Keyboard({
 }
 
 export default Keyboard;
-//  ${styles.inactive}
