@@ -54,6 +54,7 @@ function App() {
       if (key !== "Enter") return;
 
       e.preventDefault();
+      setGuessedLetters([]);
       setWordToGuess(getWord());
     };
 
@@ -66,18 +67,31 @@ function App() {
 
   return (
     <div className="!mb-[2rem] !max-w-[800px] !mx-auto flex flex-col gap-[2rem] items-center">
-      <h1>Hangman Word Game</h1>
+      <h1 className="text-4xl font-bold text-gray-800 tracking-wide text-center">
+        Hangman Word Game
+      </h1>
 
-      <div className="text-[2rem] text-center">
-        {isWinner && "Winner! - Refresh to try again!"}
-        {isLoser && "Nice Try - Refresh to try again"}
+      <div
+        className={`text-2xl font-semibold text-center ${
+          isWinner
+            ? "text-green-600"
+            : isLoser
+            ? "text-red-600"
+            : "text-gray-700"
+        }`}
+      >
+        {isWinner && "Winner! 🎉 Refresh to try again!"}
+        {isLoser && "Nice try 😅 Refresh to try again"}
       </div>
+
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
+
       <HangmanWord
         reveal={isLoser}
         guessedLetters={guessedLetters}
         wordToGuess={wordToGuess}
       />
+
       <div className="self-stretch">
         <Keyboard
           disabled={isWinner || isLoser}
