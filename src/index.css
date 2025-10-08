@@ -2,7 +2,11 @@
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  /* background-color: rgb(49, 49, 49); */
+}
+
+html {
+  height: 100vh;
+  padding-bottom: 5rem;
 }
 
 * {
@@ -10,8 +14,3 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-/* .btn {
-  background-color: darkred;
-  width: 100%;
-} */
